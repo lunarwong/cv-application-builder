@@ -91,6 +91,61 @@ function App() {
       )
     );
   };
+
+  // Acitivity data
+  const [actData, setActData] = useState([{
+    organization: 'Organization',
+    city: 'City, State',
+    role: 'Role',
+    year: 'Month Year - Month Year',
+    description: ['Description'],
+    visible: true
+  }]);
+
+  // Add Activity
+  const addAct = () => {
+    setActData(prev => [
+      ...prev,
+      { organization: "", city: "", role: "", year: "", description: [], visible: true }
+    ]);
+  };
+
+  // Toggle Activity
+  const toggleAct = (index) => {
+    setActData(actData.map((item, i) =>
+      i === index ? { ...item, visible: !item.visible } : item
+    ));
+  };
+
+  // Update Activity Description
+  const updateActDesc = (actIndex, descIndex, value) => {
+    const updated = [...actData];
+    updated[actIndex].description[descIndex] = value;
+    setActData(updated);
+  };
+
+  // Delete Activity
+  const deleteAct = (index) => {
+    setActData(actData.filter((_, i) => i !== index));
+  };
+
+  // Delete Activity Description
+  const deleteActDesc = (actIndex, descIndex) => {
+    const updated = [...actData];
+    updated[actIndex].description.splice(descIndex, 1);
+    setActData(updated);
+  };
+
+  // Add Activity Description
+  const addActDesc = (index) => {
+    setActData(prev =>
+      prev.map((item, i) =>
+        i === index
+          ? { ...item, description: [...item.description, ""] }
+          : item
+      )
+    );
+  };
   
 
   // Function to save the CV
@@ -357,6 +412,111 @@ function App() {
         ))}
         <button type="button" className="add-btn" onClick={addExp}>Add Experience</button>
         
+        {/* Activity edit form */}
+        <h3>Leadership & Activities</h3>
+        {actData.map((act, index) => (
+          <div key={index} className='activity-container'>
+            <div className={act.visible ? "act-inputs toggle-on" : "act-inputs toggle-off"}>
+
+              {/* organization */}
+              <label className="input">
+                <input
+                  type='text'
+                  id="input"
+                  placeholder='&nbsp;Organization'
+                  value={act.organization === 'Organization' ? '' : act.organization}
+                  onChange={(e) => {
+                    const updated = [...actData];
+                    updated[index].organization = e.target.value;
+                    setActData(updated);
+                  }}
+                />
+              </label>
+
+              {/* city */}
+              <label className="input">
+                <input
+                  type='text'
+                  id="input"
+                  placeholder='&nbsp;City, State'
+                  value={act.city === 'City, State' ? '' : act.city}
+                  onChange={(e) => {
+                    const updated = [...actData];
+                    updated[index].city = e.target.value;
+                    setActData(updated);
+                  }}
+                />
+              </label>
+
+              {/* role */}
+              <label className="input">
+                <input
+                  type='text'
+                  id="input"
+                  placeholder='&nbsp;Role'
+                  value={act.role === 'Role' ? '' : act.role}
+                  onChange={(e) => {
+                    const updated = [...actData];
+                    updated[index].role = e.target.value;
+                    setActData(updated);
+                  }}
+                />
+              </label>
+
+              {/* Year */}
+              <label className="input">
+                <input
+                  type='text'
+                  id="input"
+                  placeholder='&nbsp;Month Year - Month Year'
+                  value={act.year === 'Month Year - Month Year' ? '' : act.year}
+                  onChange={(e) => {
+                    const updated = [...actData];
+                    updated[index].year = e.target.value;
+                    setActData(updated);
+                  }}
+                />
+              </label>
+
+              {/* description */}
+              <div className="description-section">
+                {act.description.map((desc, descIndex) => (
+                  <div key={descIndex} className="description-item">
+                    <label className="input">
+                      <input
+                        type="text"
+                        id="input"
+                        placeholder="Description"
+                        value={desc === "Description" ? "" : desc}
+                        onChange={(e) => updateActDesc(index, descIndex, e.target.value)}
+                      />
+                    </label>
+                    <button
+                      className="delete-desc-btn"
+                      onClick={() => deleteActDesc(index, descIndex)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                ))}
+                <button className="add-act-desc-btn" onClick={() => addActDesc(index)}>
+                  Add description
+                </button>
+              </div>
+            </div>
+
+            {/* toggle and delete buttons */}
+            <button className='toggle-btn' onClick={() => toggleAct(index)}>
+              <FontAwesomeIcon icon={act.visible ? faEye : faEyeSlash} />
+            </button>
+            <button className='delete-btn' onClick={() => deleteAct(index)}>
+              <FontAwesomeIcon icon={faTrashCan} />
+            </button>
+          </div>
+        ))}
+        <button type="button" className="add-btn" onClick={addAct}>
+          Add Activity
+        </button>
 
 
         {/* buttons */}
@@ -431,9 +591,30 @@ function App() {
               )))}
           </div>
 
-          {/* Experience section */}
+          {/* Activities section */}
           <h3 className="content-head left">Leadership & Activities</h3>
           <hr />
+          <div className='activity-display-content'>
+            {actData.map((activity, index) => (
+              activity.visible && (
+                <div key={index} className='activity-display-item'>
+                  <div className='activity-display-info'>
+                    <p className="content-head ">{activity.organization}</p>
+                    <p className="content-desc">{activity.city}</p>
+                  </div>
+                  <div className='activity-display-info'>
+                    <p className="content-desc">{activity.role}</p>
+                    <p className="content-desc">{activity.year}</p>
+                  </div>
+                  <div className='activity-display-additional'>
+                    {activity.description.map((desc, descIndex) => (
+                      <li key={descIndex} className="content-desc">{desc}</li>
+                    ))}
+                  </div>
+                </div>
+              )
+            ))}
+          </div>
 
           {/* Experience section */}
           <h3 className="content-head left">Skills & Interests</h3>
