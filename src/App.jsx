@@ -345,7 +345,7 @@ function App() {
           </div>
         ))}
         
-        <button type="button" className="add-btn" onClick={addEdu}>+ Add Education</button>
+        <button type="button" className="add-btn" onClick={addEdu}>Add Education</button>
         
         {/* Experience edit form */}
         <h3>Experience</h3>
@@ -430,11 +430,11 @@ function App() {
                       />
                     </label>
                     <button className="delete-desc-btn" onClick={() => deleteExpDesc(index, descIndex)}>
-                      Delete
+                      Delete description
                     </button>
                   </div>
                 ))}
-                <button className="add-exp-desc-btn" onClick={() => addExpDesc(index)}>
+                <button className="add-desc-btn" onClick={() => addExpDesc(index)}>
                   Add description
                 </button>
               </div>
@@ -443,7 +443,7 @@ function App() {
             
             </div>
         ))}
-        <button type="button" className="add-btn" onClick={addExp}>+ Add Experience</button>
+        <button type="button" className="add-btn" onClick={addExp}>Add Experience</button>
         
         {/* Activity edit form */}
         <h3>Leadership & Activities</h3>
@@ -536,11 +536,11 @@ function App() {
                       className="delete-desc-btn"
                       onClick={() => deleteActDesc(index, descIndex)}
                     >
-                      Delete
+                      Delete description
                     </button>
                   </div>
                 ))}
-                <button className="add-act-desc-btn" onClick={() => addActDesc(index)}>
+                <button className="add-desc-btn" onClick={() => addActDesc(index)}>
                   Add description
                 </button>
               </div>
@@ -550,11 +550,11 @@ function App() {
           </div>
         ))}
         <button type="button" className="add-btn" onClick={addAct}>
-          + Add Activity
+          Add Activity
         </button>
 
         {/* Skills and Interests edit form */}
-        <h3 className="content-head center">Skills & Interests</h3>
+        <h3 >Skills & Interests</h3>
 
           {/* Edit form */}
           <div className="skill-edit-form">
@@ -594,7 +594,7 @@ function App() {
               </div>
             ))}
           </div>
-          <button type="button" className="add-btn" onClick={addSkill}>+ Add Skill</button>
+          <button type="button" className="add-btn" onClick={addSkill}>Add Skill</button>
 
         {/* buttons */}
         {/* <button className='modify-button'>Save CV</button>
