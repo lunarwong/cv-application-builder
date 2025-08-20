@@ -17,7 +17,7 @@ function App() {
   const [eduData, setEduData] = useState([{
     university: 'University',
     major: 'Major',
-    degree: 'Degree',
+    degree: 'Degree, GPA is optional',
     year: 'Graduation Year/Duration',
     thesis: '',
     additionalDetail: '',
@@ -52,9 +52,11 @@ function App() {
   }]);
 
   //add Experience
-  const addExp = () => {
-    setExpData(prev => [...prev, { organization: "", city: "", position: "", year: "", description: [], visible: true }]);
-  };
+  const addExp = (e) => {
+    setExpData(prev => [...prev, 
+      { organization: "", city: "", position: "", 
+        year: "", description: [], visible: true }]);
+    };
 
   //toggle button
   const toggleExp = (index) => {
@@ -253,94 +255,93 @@ function App() {
             
             <div className={edu.visible ? "edu-inputs toggle-on" : "edu-inputs toggle-off"}>
               {/* university */}
-              <label  className="input">
+              
               <input
                 type='text'
                 id="input"
                 placeholder='&nbsp;University'
-                value={eduData.university == 'University' ? '' : eduData.university}
+                value={edu.university == 'University' ? '' : edu.university}
                 onChange={(e) => {
                   const updated = [...eduData];
                   updated[index].university = e.target.value;
                   setEduData(updated);
                 }}
               />
-              </label>
 
               {/* Major */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;Major'
-                  value={eduData.major == 'Major' ? '' : eduData.major}
+                  value={edu.major == 'Major' ? '' : edu.major}
                   onChange={(e) => {
                     const updated = [...eduData];
                     updated[index].major = e.target.value;
                     setEduData(updated);
                   }}
                 />
-              </label>
+              
 
               {/* Degree */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
-                  placeholder='&nbsp;Degree, GPA is optional'
-                  value={eduData.degree == 'Degree, GPA is optional' ? '' : eduData.degree}
+                  placeholder="&nbsp;Degree, GPA is optional"
+                  value={edu.degree == "Degree, GPA is optional" ? '' : edu.degree}
                   onChange={(e) => {
                     const updated = [...eduData];
                     updated[index].degree = e.target.value;
                     setEduData(updated);
                   }}
                 />
-              </label>
+              
 
               {/* Year */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;Graduation Year/Duration'
-                  value={eduData.year == 'Graduation Year/Duration' ? '' : eduData.year}
+                  value={edu.year == 'Graduation Year/Duration' ? '' : edu.year}
                   onChange={(e) => {
                     const updated = [...eduData];
                     updated[index].year = e.target.value;
                     setEduData(updated);
                   }}
                 />
-              </label>
+              
 
               {/* Thesis */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;Thesis Title (Optional)'
-                  value={eduData.thesis}
+                  value={edu.thesis}
                   onChange={(e) => {
                     const updated = [...eduData];
                     updated[index].thesis = e.target.value;
                     setEduData(updated);
                   }}
                 />
-              </label>
+              
 
               {/* Additional Detail */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;Additional Detail (Optional)'
-                  value={eduData.additionalDetail}
+                  value={edu.additionalDetail}
                   onChange={(e) => {
                     const updated = [...eduData];
                     updated[index].additionalDetail = e.target.value;
                     setEduData(updated);
                   }}
                 />
-              </label>
+              
             </div>
           </div>
         ))}
@@ -357,70 +358,65 @@ function App() {
             
             <div className={exp.visible ? "exp-inputs toggle-on" : "exp-inputs toggle-off"}>
               {/* organization */}
-              <label  className="input">
+              
               <input
                 type='text'
                 id="input"
                 placeholder='&nbsp;Organization'
-                value={expData.organization == 'Organization' ? '' : expData.organization}
+                value={exp.organization == 'Organization' ? '' : exp.organization}
                 onChange={(e) => {
                   const updated = [...expData];
                   updated[index].organization = e.target.value;
                   setExpData(updated);
                 }}
               />
-              </label>
 
               {/* city */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;City, State'
-                  value={expData.city == 'City, State' ? '' : expData.city}
+                  value={exp.city == 'City, State' ? '' : exp.city}
                   onChange={(e) => {
                     const updated = [...expData];
                     updated[index].city = e.target.value;
                     setExpData(updated);
                   }}
                 />
-              </label>
 
               {/* position */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;Position Title'
-                  value={expData.position == 'Position Title' ? '' : expData.position}
+                  value={exp.position == 'Position Title' ? '' : exp.position}
                   onChange={(e) => {
                     const updated = [...expData];
                     updated[index].position = e.target.value;
                     setExpData(updated);
                   }}
                 />
-              </label>
 
               {/* Year */}
-              <label  className="input">
+              
                 <input
                   type='text'
                   id="input"
                   placeholder='&nbsp;Month Year - Month Year'
-                  value={expData.year == 'Month Year - Month Year' ? '' : expData.year}
+                  value={exp.year == 'Month Year - Month Year' ? '' : exp.year}
                   onChange={(e) => {
                     const updated = [...expData];
                     updated[index].year = e.target.value;
                     setExpData(updated);
                   }}
                 />
-              </label>
 
               {/* description */}
               <div className="description-section">
                 {exp.description.map((desc, descIndex) => (
                   <div key={descIndex} className="description-item">
-                    <label className="input">
                       <input
                         type="text"
                         id="input"
@@ -428,7 +424,6 @@ function App() {
                         value={desc === "Description" ? "" : desc}
                         onChange={(e) => updateExpDesc(index, descIndex, e.target.value)}
                       />
-                    </label>
                     <button className="delete-desc-btn" onClick={() => deleteExpDesc(index, descIndex)}>
                       Delete description
                     </button>
@@ -460,7 +455,7 @@ function App() {
             <div className={act.visible ? "act-inputs toggle-on" : "act-inputs toggle-off"}>
 
               {/* organization */}
-              <label className="input">
+              
                 <input
                   type='text'
                   id="input"
@@ -472,10 +467,9 @@ function App() {
                     setActData(updated);
                   }}
                 />
-              </label>
 
               {/* city */}
-              <label className="input">
+              
                 <input
                   type='text'
                   id="input"
@@ -487,10 +481,9 @@ function App() {
                     setActData(updated);
                   }}
                 />
-              </label>
 
               {/* role */}
-              <label className="input">
+              
                 <input
                   type='text'
                   id="input"
@@ -502,10 +495,9 @@ function App() {
                     setActData(updated);
                   }}
                 />
-              </label>
 
               {/* Year */}
-              <label className="input">
+              
                 <input
                   type='text'
                   id="input"
@@ -517,13 +509,11 @@ function App() {
                     setActData(updated);
                   }}
                 />
-              </label>
 
               {/* description */}
               <div className="description-section">
                 {act.description.map((desc, descIndex) => (
                   <div key={descIndex} className="description-item">
-                    <label className="input">
                       <input
                         type="text"
                         id="input"
@@ -531,7 +521,6 @@ function App() {
                         value={desc === "Description" ? "" : desc}
                         onChange={(e) => updateActDesc(index, descIndex, e.target.value)}
                       />
-                    </label>
                     <button
                       className="delete-desc-btn"
                       onClick={() => deleteActDesc(index, descIndex)}
@@ -569,7 +558,7 @@ function App() {
                   <input
                     type="text"
                     id="input"
-                    placeholder="Skill"
+                    placeholder="&nbsp;Skill"
                     value={skill.skill === 'Skill' ? '' : skill.skill}
                     onChange={(e) => {
                       const updated = [...skillData];

@@ -30,8 +30,6 @@ input {
   margin-top: 1rem;
 }
 
-/* input */
-
 /* education section */
 .education-container, 
 .experience-container, 
@@ -45,6 +43,8 @@ input {
   max-width: 100%;
   
 }
+
+
 
 /* toggle button */
 .toggle-btn {
@@ -92,6 +92,7 @@ input {
   gap: 0.5rem;
   margin-top: 1rem;
   border-radius: 12px;
+  
 }
 
 .edu-inputs  input, 
@@ -100,6 +101,7 @@ input {
 .skill-inputs  input{
   flex: 1;
   width: 100%;
+  
 }
 
 /* toggle off style 1 */
@@ -148,21 +150,29 @@ input {
 .description-section {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
   align-items: flex-start;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 0.3rem;
+  min-width: 100%;
 }
 
 .description-item {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+  min-width: 100%;
+  flex: 2;
+}
+
+.description-item input {
+  flex: 1;
+  width: 100%;
 }
 
 
 .delete-desc-btn {
+  flex: 1;
   max-width: fit-content;
   text-align: center;
   font-size: 0.9rem;
