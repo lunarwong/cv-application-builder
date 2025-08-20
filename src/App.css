@@ -22,7 +22,10 @@
 /* input */
 
 /* education section */
-.education-container, .experience-container, .activity-container {
+.education-container, 
+.experience-container, 
+.activity-container, 
+.skill-container {
   display: flex;
   flex-direction: row;
   justify-content:flex-start;
@@ -54,13 +57,17 @@
   color: var(--white);
 }
 
-.edu-inputs, .exp-inputs, .act-inputs {
+.edu-inputs, 
+.exp-inputs, 
+.act-inputs,
+.skill-inputs{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 0.5rem;
-  
+  margin-top: 1rem;
 }
+
 
 /* add button */
 .add-btn {
@@ -135,6 +142,17 @@
 .activity-display-additional {
   text-align: left;
   margin-bottom: 1rem;
+}
+
+/* skill section */
+.skill-display-content{
+  margin-bottom: 1rem;
+}
+.skill-display-item {
+  display: flex;
+  justify-content: flex-start ;
+  column-gap: 0.5rem;
+  
 }
 
 

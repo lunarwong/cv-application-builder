@@ -146,6 +146,39 @@ function App() {
       )
     );
   };
+
+  //Skill and Interests data
+  const [skillData, setSkillData] = useState([
+    {
+      skill: "Skill",
+      description: "Description",
+      visible: true
+    }
+  ]);
+
+   // Add new topic + description
+  const addSkill = (e) => {
+    e.preventDefault();
+    setSkillData([
+      ...skillData,
+      { skill: "", description: "", visible: true }
+    ]);
+  };
+
+  // Delete skill + description
+  const deleteSkill = (index) => {
+    setSkillData(skillData.filter((_, i) => i !== index));
+  };
+
+  // Toggle visibility
+  const toggleSkill = (index) => {
+    setSkillData(
+      skillData.map((item, i) =>
+        i === index ? { ...item, visible: !item.visible } : item
+      )
+    );
+  };
+
   
 
   // Function to save the CV
@@ -214,6 +247,10 @@ function App() {
         <h3>Education</h3>
         {eduData.map((edu, index) => (
           <div key={index} className='education-container'>
+            {/* toggle and delete buttons */}
+            <button className='delete-btn' onClick={() => deleteEdu(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
+            <button className='toggle-btn' onClick={() => toggleBtn(index)}><FontAwesomeIcon icon={edu.visible ? faEye:faEyeSlash} /></button>
+            
             <div className={edu.visible ? "edu-inputs toggle-on" : "edu-inputs toggle-off"}>
               {/* university */}
               <label  className="input">
@@ -305,20 +342,19 @@ function App() {
                 />
               </label>
             </div>
-            
-            {/* toggle and delete buttons */}
-            <button className='toggle-btn' onClick={() => toggleBtn(index)}><FontAwesomeIcon icon={edu.visible ? faEye:faEyeSlash} /></button>
-            <button className='delete-btn' onClick={() => deleteEdu(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
-            
           </div>
         ))}
         
-        <button type="button" className="add-btn" onClick={addEdu}>Add Education</button>
+        <button type="button" className="add-btn" onClick={addEdu}>+ Add Education</button>
         
         {/* Experience edit form */}
         <h3>Experience</h3>
         {expData.map((exp, index) => (
           <div key={index} className='experience-container'>
+            {/* toggle and delete buttons */}
+            <button className='delete-btn' onClick={() => deleteExp(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
+            <button className='toggle-btn' onClick={() => toggleExp(index)}><FontAwesomeIcon icon={exp.visible ? faEye:faEyeSlash} /></button>
+            
             <div className={exp.visible ? "exp-inputs toggle-on" : "exp-inputs toggle-off"}>
               {/* organization */}
               <label  className="input">
@@ -405,17 +441,22 @@ function App() {
               
             </div>
             
-            {/* toggle and delete buttons */}
-            <button className='toggle-btn' onClick={() => toggleExp(index)}><FontAwesomeIcon icon={exp.visible ? faEye:faEyeSlash} /></button>
-            <button className='delete-btn' onClick={() => deleteExp(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
-          </div>
+            </div>
         ))}
-        <button type="button" className="add-btn" onClick={addExp}>Add Experience</button>
+        <button type="button" className="add-btn" onClick={addExp}>+ Add Experience</button>
         
         {/* Activity edit form */}
         <h3>Leadership & Activities</h3>
         {actData.map((act, index) => (
           <div key={index} className='activity-container'>
+            {/* toggle and delete buttons */}
+            <button className='delete-btn' onClick={() => deleteAct(index)}>
+              <FontAwesomeIcon icon={faTrashCan} />
+            </button>
+            <button className='toggle-btn' onClick={() => toggleAct(index)}>
+              <FontAwesomeIcon icon={act.visible ? faEye : faEyeSlash} />
+            </button>
+
             <div className={act.visible ? "act-inputs toggle-on" : "act-inputs toggle-off"}>
 
               {/* organization */}
@@ -505,19 +546,55 @@ function App() {
               </div>
             </div>
 
-            {/* toggle and delete buttons */}
-            <button className='toggle-btn' onClick={() => toggleAct(index)}>
-              <FontAwesomeIcon icon={act.visible ? faEye : faEyeSlash} />
-            </button>
-            <button className='delete-btn' onClick={() => deleteAct(index)}>
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
+            
           </div>
         ))}
         <button type="button" className="add-btn" onClick={addAct}>
-          Add Activity
+          + Add Activity
         </button>
 
+        {/* Skills and Interests edit form */}
+        <h3 className="content-head center">Skills & Interests</h3>
+
+          {/* Edit form */}
+          <div className="skill-edit-form">
+            {skillData.map((skill, index) => (
+              <div key={index} className="skill-container">
+                {/* toggle and delete buttons */}
+                  <button className='delete-btn' onClick={() => deleteSkill(index)}><FontAwesomeIcon icon={faTrashCan} /></button>
+                  <button className='toggle-btn' onClick={() => toggleSkill(index)}><FontAwesomeIcon icon={skill.visible ? faEye:faEyeSlash} /></button>
+                  
+                <div className={skill.visible ? "skill-inputs toggle-on" : "skill-inputs toggle-off"}>
+                  
+                  <input
+                    type="text"
+                    id="input"
+                    placeholder="Skill"
+                    value={skill.skill === 'Skill' ? '' : skill.skill}
+                    onChange={(e) => {
+                      const updated = [...skillData];
+                      updated[index].skill = e.target.value;
+                      setSkillData(updated);
+                    }}
+                  />
+                  <input
+                    type="text"
+                    id="input"
+                    placeholder="Description"
+                    value={skill.description === 'Description' ? '' : skill.description}
+                    onChange={(e) => {
+                      const updated = [...skillData];
+                      updated[index].description = e.target.value;
+                      setSkillData(updated);
+                    }}
+                  />
+                  
+                  
+                </div>
+              </div>
+            ))}
+          </div>
+          <button type="button" className="add-btn" onClick={addSkill}>+ Add Skill</button>
 
         {/* buttons */}
         {/* <button className='modify-button'>Save CV</button>
@@ -616,9 +693,23 @@ function App() {
             ))}
           </div>
 
-          {/* Experience section */}
+          {/* Skill section */}
           <h3 className="content-head left">Skills & Interests</h3>
           <hr />
+          <div className="skill-display-content">
+            {skillData.map(
+              (item, index) =>
+                item.visible && (
+                  <div key={index} className="skill-display-item">
+                    <p className="content-head">
+                      {item.skill}
+                      {item.skill && item.description ? " :" : ""}
+                    </p>
+                    <p className="content-desc">{item.description}</p>
+                  </div>
+                )
+            )}
+          </div>
 
           
           
