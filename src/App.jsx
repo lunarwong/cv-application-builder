@@ -1,4 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+
+import generatePDF from 'react-to-pdf';
+import usePDF from 'react-to-pdf'
+
 import './App.css'
 import EditForm from './components/EditForm'
 import Display from './components/Display'
@@ -150,8 +154,12 @@ function App() {
    
   }
 
-  const exportDataPDF = () => {}
+  // const { toPDF, targetRef } = usePDF({
+  //   filename: `${cvData.name}-CV.pdf`,
+  
+  // });
 
+  const targetRef = useRef();
 
   return (
     <>
@@ -170,16 +178,29 @@ function App() {
           setSkillData={setSkillData}
         />
         <div className='display-and-btn'>
-          <Display 
-            cvData={cvData}
-            eduData={eduData}
-            expData={expData}
-            actData={actData}
-            skillData={skillData}
-          />
+          <div ref={targetRef} >
+            <Display 
+              cvData={cvData}
+              eduData={eduData}
+              expData={expData}
+              actData={actData}
+              skillData={skillData}
+            />
+          </div>
+          
           <div className='btn-container'>
-            <button className='clear-data-btn' onClick={clearAllData} ><FontAwesomeIcon icon={faBroom}/> Clear all data</button>
-            <button className='export-data-btn' onClick={exportDataPDF}><FontAwesomeIcon icon={faDownload}/> Dowload as PDF</button>
+            <button 
+              className='clear-data-btn' 
+              onClick={clearAllData} >
+              <FontAwesomeIcon icon={faBroom}/> 
+                Clear all data
+            </button>
+            <button 
+              className='export-data-btn' 
+              onClick={() => generatePDF(targetRef, {filename: 'page.pdf'})}>
+              <FontAwesomeIcon icon={faDownload}/> 
+              Dowload as PDF
+            </button>
           </div>
           
         </div>
