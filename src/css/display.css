@@ -1,23 +1,3 @@
-.content {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-
-
-input {
-  border: 1px solid var(--black);
-  border-radius: 4px;
-  padding: 0.5rem;
-  font-size: 1rem;
-  min-width: fit-content;
-  width: 50%;
-  max-width: 100%;
-  margin: 0.5rem 0.5rem
-}
-
-
 
 /* display */
 
@@ -88,60 +68,16 @@ input {
 .skill-display-content{
   margin-bottom: 1rem;
 }
+
+.skill-display-item .content-head{
+    min-width: fit-content;
+}
+
 .skill-display-item {
   display: flex;
   justify-content: flex-start ;
   column-gap: 0.5rem;
+  text-align: left;
   
 }
 
-
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 2.5em;
-    margin: 2rem auto;
-    text-align: center;
-    width: 100%;
-    display: block;
-  }
-  .content {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%; 
-    max-width: 100vw;
-    box-sizing: border-box; /* include padding/border in width */
-
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .modify-container{
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 80%;
-  }
-  .display-container {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 80%;
-  }
-  
-}
-
-
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */

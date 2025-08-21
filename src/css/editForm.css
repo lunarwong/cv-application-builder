@@ -1,0 +1,190 @@
+
+/* editform */
+.modify-container {
+  border: 1px solid var(--black);
+  padding: 1rem;
+  margin-left: 1.5rem;
+  min-width: 45vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modify-container h3 {
+  margin-top: 2rem;
+}
+
+/* education section */
+.education-container, 
+.experience-container, 
+.activity-container, 
+.skill-container {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: baseline;
+  gap: 0.5rem;
+  max-width: 100%;
+  
+}
+
+
+
+/* toggle button */
+.toggle-btn {
+  max-width: fit-content;
+  text-align: center;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  background-color: var(--blue);
+  color: var(--white);
+
+  transition: background-color 0.3s ease;
+  
+}
+
+.toggle-btn:hover {
+  background-color: var(--dark-blue);
+}
+
+.delete-btn {
+  max-width: fit-content;
+  text-align: center;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  background-color: var(--red);
+  color: var(--white);
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: var(--dark-red);
+}
+
+.edu-inputs, 
+.exp-inputs, 
+.act-inputs,
+.skill-inputs{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 2;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 12px;
+  
+}
+
+.edu-inputs  input, 
+.exp-inputs  input, 
+.act-inputs  input,
+.skill-inputs  input{
+  flex: 1;
+  width: 100%;
+  
+}
+
+/* toggle off style 1 */
+.edu-inputs.toggle-on input, 
+.exp-inputs.toggle-on input, 
+.act-inputs.toggle-on input,
+.skill-inputs.toggle-on input{
+  background-color: var(--white);
+  color: var(--black);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edu-inputs.toggle-off input, 
+.exp-inputs.toggle-off input, 
+.act-inputs.toggle-off input,
+.skill-inputs.toggle-off input{
+  background-color: var(--grey);
+  color: var(--dark-grey);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+/* add button */
+.add-btn {
+  min-width: fit-content;
+  width: 124px;
+  margin-left: auto;
+  margin-top: 1rem;
+
+  cursor: pointer;
+
+  background-color: var(--green);
+  color: var(--white);
+
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+/* description section */
+.description-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  min-width: 100%;
+}
+
+.description-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 100%;
+  flex: 2;
+}
+
+.description-item input {
+  flex: 1;
+  width: 100%;
+}
+
+
+.delete-desc-btn {
+  flex: 1;
+  max-width: fit-content;
+  text-align: center;
+  font-size: 0.9rem;
+  max-height: 2.4rem;
+  margin-left: 0.5rem;
+
+  cursor: pointer;
+
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 4px !important;
+  /* background-color: var(--white); */
+}
+
+.add-desc-btn {
+  max-width: fit-content;
+  width: auto;
+  text-align: center;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  align-self: flex-start; 
+  font-size: 0.9rem;
+  max-height: 2.4rem;
+
+  cursor: pointer;
+
+  color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 4px !important;
+  /* background-color: var(--white); */
+}
