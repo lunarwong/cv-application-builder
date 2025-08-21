@@ -5,7 +5,6 @@ const Display = ({cvData, eduData, expData, actData, skillData}) => {
     return (
         <>
         <div className='display-container'>
-        <h2>Display</h2>
 
         <div className='export-content'>
           <h3 className="content-head center">{cvData.name}</h3>

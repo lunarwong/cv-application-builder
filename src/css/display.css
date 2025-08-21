@@ -3,6 +3,8 @@
 
 .display-container {
   border: 1px solid var(--black);
+  background-color: var(--white);
+  
   padding: 1rem;
   margin-right: 1.5rem;
   min-width: 45vw;

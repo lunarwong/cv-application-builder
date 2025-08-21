@@ -5,8 +5,7 @@ import { faEye, faEyeSlash, faTrashCan } from "@fortawesome/free-solid-svg-icons
 
 const EditForm = (
   { cvData, setCvData, eduData, setEduData, expData, setExpData
-    , actData, setActData, skillData, setSkillData
-   }
+    , actData, setActData, skillData, setSkillData}
   ) => {
 
       //EDUCATION SECTION//
@@ -142,18 +141,6 @@ const EditForm = (
             i === index ? { ...item, visible: !item.visible } : item
           )
         );
-      };
-    
-      
-    
-      // Function to save the CV
-      const saveCv = () => {
-        // Logic to save the CV data
-      };
-    
-      // Function to download the CV
-      const downloadCv = () => {
-        // Logic to download the CV as a file
       };
     
 

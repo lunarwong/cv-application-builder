@@ -8,6 +8,8 @@
 
 input {
   border: 1px solid var(--black);
+  background-color: var(--white);
+
   border-radius: 4px;
   padding: 0.5rem;
   font-size: 1rem;
@@ -18,6 +20,58 @@ input {
 }
 
 
+.display-and-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+
+.display-and-btn .btn-container{
+  min-width: 90%;
+  margin-right: 1.5rem;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clear-data-btn {
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 1.5rem;
+
+  transition: background-color 0.3s ease;
+}
+
+.clear-data-btn:hover {
+  background-color: var(--dark-red);
+  transition: background-color 0.3s ease;
+}
+
+
+.export-data-btn{
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.export-data-btn:hover {
+  background-color: var(--dark-blue);
+  transition: background-color 0.3s ease;
+}
 
 
 
@@ -44,6 +98,22 @@ input {
     width: 100%; 
     max-width: 100vw;
 
+  }
+  .display-and-btn {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+  }
+
+  .display-and-btn .btn-container{
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    /* width: 80vw; */
+    max-width: 80%;
+    margin: 2rem auto;
   }
 
   /* .modify-container{
