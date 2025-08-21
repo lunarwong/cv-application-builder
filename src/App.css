@@ -116,6 +116,21 @@ input {
     margin: 2rem auto;
   }
 
+  .pdf-target {
+    width: 794px; 
+    max-width: 794px;
+    background: var(--white);
+    margin: 0 auto; 
+}
+
+  @media print {
+  .pdf-target {
+    width: 210mm;     
+    height: auto;    
+    max-width: none;
+  }
+}
+
   /* .modify-container{
     margin-left: 0;
     margin-right: 0;

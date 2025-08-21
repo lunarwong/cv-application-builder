@@ -178,7 +178,7 @@ function App() {
           setSkillData={setSkillData}
         />
         <div className='display-and-btn'>
-          <div ref={targetRef} >
+          <div ref={targetRef} className="pdf-target">
             <Display 
               cvData={cvData}
               eduData={eduData}
@@ -197,7 +197,11 @@ function App() {
             </button>
             <button 
               className='export-data-btn' 
-              onClick={() => generatePDF(targetRef, {filename: 'page.pdf'})}>
+              onClick={() => generatePDF(targetRef, {
+                filename: 'CV.pdf',
+                page: { format: 'a4', orientation: 'portrait', margin: 10 },
+                canvas: { scale: 2 }
+                })}>
               <FontAwesomeIcon icon={faDownload}/> 
               Dowload as PDF
             </button>
