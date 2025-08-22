@@ -2,8 +2,7 @@
   "name": "cv-application-form",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://lunarwong.github.io/cv-application-form",
-  "description": "A CV application form built with React and Vite",
+  "homepage": "https://lunarwong.github.io/cv-application-builder",
   "type": "module",
   "scripts": {
     "dev": "vite",
