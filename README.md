@@ -1,12 +1,22 @@
-# React + Vite
+# CV Builder Project 
+[Live Demo](https://lunarwong.github.io/weather-app/) 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal project for practicing front-end development, including local storage data storing.
+## About this project
+### Tech used:
+JavaScript, CSS, React, Vite
 
-Currently, two official plugins are available:
+### Features:
+- Type in information; the data will be stored in local storage.
+- Add information as needed.
+- Real-time rendering of CV.
+- Export to PDF file.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Note from developer
+The goal of this project was to sharpen my knowledge of using React hooks, DOM manipulation and local storage data storing.
 
-## Expanding the ESLint configuration
+Along with practice using git: creating branched, merging, adding commits, and pusing to GitHub!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+# Credit
+Credit to [Harvard resume template](https://careerservices.fas.harvard.edu/resources/bullet-point-resume-template/).
