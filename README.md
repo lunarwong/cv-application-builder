@@ -1,5 +1,5 @@
 # CV Builder Project 
-[Live Demo](https://lunarwong.github.io/weather-app/) 
+[Live Demo](https://lunarwong.github.io/cv-application-builder/) 
 
 This is a personal project for practicing front-end development, including local storage data storing.
 ## About this project
